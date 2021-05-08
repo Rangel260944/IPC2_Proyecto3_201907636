@@ -19,5 +19,6 @@ from Aplicacion import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.inicio),
-    path('enviararchivo/',views.enviararchivo, name ='enviararchivo' ), 
+    path('enviararchivo/',views.enviararchivo, name ='enviararchivo' ),
+    path('salida/', views.salida, name = 'salidaxml')
 ]

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EVENTOS>
+	<EVENTO>
+		Guatemala, 25/04/2021
+		Reportado por: barni@ing.usac.edu.gt
+		Usuarios afectados: homero@ing.usac.edu.gt, lisa@ing.usac.edu.gt,
+		moe@ing.usac.edu.gt, bart@ing.usac.edu.gt
+		Error: 20003 - Sobrecarga de informacion
+	</EVENTO>
+	<EVENTO>
+		Guatemala, 20/04/2021
+		Reportado por: barni@ing.usac.edu.gt
+		Usuarios afectados: homero@ing.usac.edu.gt, lisa@ing.usac.edu.gt
+		Error: 20003 - Sobrecarga de informacion
+	</EVENTO>
+		<EVENTO>
+		Guatemala, 25/04/2021
+		Reportado por: lisa@ing.usac.edu.gt
+		Usuarios afectados: moe@ing.usac.edu.gt, bart@ing.usac.edu.gt
+		Error: 20002 - Error de destino, momento equivocado,
+		lugar equivocado y medios equivocados
+	</EVENTO>
+		<EVENTO>
+		Guatemala, 25/04/2021
+		Reportado por: lisa@ing.usac.edu.gt
+		Usuarios afectados: moe@ing.usac.edu.gt, bart@ing.usac.edu.gt
+		Error: 20002 - Error de destino, momento equivocado,
+		lugar equivocado y medios equivocados
+	</EVENTO>
+</EVENTOS>
