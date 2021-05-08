@@ -19,6 +19,5 @@ from Aplicacion import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.inicio),
-    path('file/',views.enviararchivo, name ='file' ),
-    
+    path('enviararchivo/',views.enviararchivo, name ='enviararchivo' ), 
 ]
