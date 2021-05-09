@@ -133,11 +133,14 @@ class analizar:
         colores = ['#025DE0', '#0BC1B9', '#ACDC0A', '#F6920B', '#F0FF00', '#E01002', '#3C3B3D']
         fechas = correos_grafica
         primas = numero_n_veces
+        plt.autoscale()
         plt.bar(range(len(correos_grafica)), primas, edgecolor='black', color=colores)
-        plt.xticks(range(len(correos_grafica)), fechas, rotation=60)
+        plt.xticks(range(len(correos_grafica)), fechas, rotation = 'vertical')
+        plt.margins(0.2)
+        plt.subplots_adjust(bottom=0.45)
         plt.title(str(fecha))
         plt.ylim(min(primas) - 1, max(primas) + 1)
-        plt.gcf().subplots_adjust(bottom=0.15)
+
         plt.savefig("C:/Users/Carlos Rangel/Documents/GitHub/IPC2_Proyecto3_201907636/App/Aplicacion/static/Grafica_fechas.png")
 
 

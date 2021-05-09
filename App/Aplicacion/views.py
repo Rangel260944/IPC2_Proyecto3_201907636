@@ -12,6 +12,8 @@ def inicio(x):
 
 def consulta_fech(x):
     return render(x, 'consulta_fecha.html')
+def peticion_error(x):
+    return render(x, 'consulta_error.html')
 
 
 def enviararchivo(request):
