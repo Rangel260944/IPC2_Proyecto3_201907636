@@ -60,16 +60,16 @@ def enviarinfo(request):
         fecha = fecha.replace("/", "-")
         resulto = requests.get(endpoint + 'fechas/' + fecha)
         print(fecha)
-        #form = EntradaFecha(request.GET)
-       # if form.is_valid():
-      #       fecha = fecha.replace("/", "-")
-    #        print(str(fecha))
-   #         resulto = requests.get(endpoint + 'fechas/' + fecha)
-  #      else:
- #           print("No entra")
     return render(request, 'consulta_fecha.html')
 
 def reset(request):
     if request.method == 'POST':
         respuesta = requests.post(endpoint + 'reseteado', data = "")
     return render(request, 'Inicio.html')
+
+def codigo(request):
+    if request.method == 'GET':
+        codigo = request.GET['fnamee']
+        resulto = requests.get(endpoint + 'codigos/' + codigo)
+        print(codigo)
+        return render(request, 'consulta_error.html')

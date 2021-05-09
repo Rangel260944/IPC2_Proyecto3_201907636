@@ -29,9 +29,18 @@ def resetear():
 @app.route('/fechas/<fecha>', methods=['GET'])
 def consulta(fecha):
     global separa
-    fecha = fecha.replace("-", "/")  #Antes de la funcion peticion borrar el archivo
+    fecha = fecha.replace("-", "/")                              #Antes de la funcion peticion borrar el archivo
     print(fecha)
     separa.peticion_fechas(fecha)
     return "Funciono"
+
+@app.route('/codigos/<codigo>', methods=['GET'])
+def consulta_cod(codigo):
+    global separa  #Antes de la funcion peticion borrar el archivo
+    print(codigo)
+    separa.peticion_error(codigo)
+    return "Funciono"
+
+
 if __name__ == "__main__":
     app.run(debug=True)

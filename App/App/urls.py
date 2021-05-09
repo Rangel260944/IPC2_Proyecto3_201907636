@@ -23,5 +23,6 @@ urlpatterns = [
     path('salida/', views.salida, name = 'salidaxml'),
     path('consulta/', views.consulta_fech),
     path('enviar/', views.enviarinfo),
-    path('reset/', views.reset)
+    path('reset/', views.reset),
+    path('enviacodigo/', views.codigo)
 ]

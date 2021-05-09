@@ -2,6 +2,7 @@ from xml.etree import ElementTree as ET
 import re
 import matplotlib.pyplot as plt
 global conteo_todo
+global conteo_todo_con_user
 class analizar:
     def expresiones(self):
         x = open("entrada.xml", "r")
@@ -24,6 +25,7 @@ class analizar:
         para_todo = []
         en_posicion0 = []
         global conteo_todo
+        global conteo_todo_con_user
         conteo_todo = []
         conteo_todo_con_user = []
         escritura = []
@@ -135,9 +137,32 @@ class analizar:
         plt.xticks(range(len(correos_grafica)), fechas, rotation=60)
         plt.title(str(fecha))
         plt.ylim(min(primas) - 1, max(primas) + 1)
+        plt.gcf().subplots_adjust(bottom=0.15)
         plt.savefig("C:/Users/Carlos Rangel/Documents/GitHub/IPC2_Proyecto3_201907636/App/Aplicacion/static/Grafica_fechas.png")
 
 
+    def peticion_error(self, codigo):
+        codigo_grafica = []
+        conteo_codigo_grafica = []
+        fecha_codigo_grafica = []
+        global conteo_todo_con_user
+        for p in conteo_todo_con_user:
+            j = str(p).find(codigo)
+            print(j)
+            if j >= 3:
+                codigo_grafica.append(p[0])
+                fecha_codigo_grafica.append(p[1])
+                conteo_codigo_grafica.append(p[2])
+
+        colores = ['#025DE0', '#0BC1B9', '#ACDC0A', '#F6920B', '#F0FF00', '#E01002', '#3C3B3D']
+        fechas = fecha_codigo_grafica
+        primas = conteo_codigo_grafica
+        plt.bar(range(len(fecha_codigo_grafica)), primas, edgecolor='black', color=colores)
+        plt.xticks(range(len(fecha_codigo_grafica)), fechas, rotation=60)
+        plt.title(codigo)
+        plt.ylim(min(primas) - 1, max(primas) + 1)
+        plt.xlabel()
+        plt.savefig("C:/Users/Carlos Rangel/Documents/GitHub/IPC2_Proyecto3_201907636/App/Aplicacion/static/Grafica_errores.png")
 
 
 
