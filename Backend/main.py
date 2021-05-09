@@ -11,16 +11,27 @@ separa = analizar()
 
 @app.route('/cargarArchivo')
 def cargar():
+    global separa
     return "Cargando archivo"
 
 
 @app.route('/enviado',methods=['POST'])
 def getfile():
+    global separa
     separa.expresiones()
     return "Funciona"
 
-@app.route('/fechas', methods=['GET'])
-def consulta():
-    print("")
+@app.route('/reseteado', methods=['POST'])
+def resetear():
+    global separa
+    separa = analizar()
+
+@app.route('/fechas/<fecha>', methods=['GET'])
+def consulta(fecha):
+    global separa
+    fecha = fecha.replace("-", "/")  #Antes de la funcion peticion borrar el archivo
+    print(fecha)
+    separa.peticion_fechas(fecha)
+    return "Funciono"
 if __name__ == "__main__":
     app.run(debug=True)

@@ -20,5 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.inicio),
     path('enviararchivo/',views.enviararchivo, name ='enviararchivo' ),
-    path('salida/', views.salida, name = 'salidaxml')
+    path('salida/', views.salida, name = 'salidaxml'),
+    path('consulta/', views.consulta_fech),
+    path('enviar/', views.enviarinfo),
+    path('reset/', views.reset)
 ]

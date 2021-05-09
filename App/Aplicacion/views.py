@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 import requests
 from .forms import EntradaForm
-
+from .forms import EntradaFecha
 
 
 endpoint = 'http://127.0.0.1:5000/'
@@ -9,6 +9,9 @@ endpoint = 'http://127.0.0.1:5000/'
 
 def inicio(x):
     return render(x, 'Inicio.html')
+
+def consulta_fech(x):
+    return render(x, 'consulta_fecha.html')
 
 
 def enviararchivo(request):
@@ -51,4 +54,22 @@ def salida_entrada(request):
         }
         return render(request, 'Inicio.html',info)
 
+def enviarinfo(request):
+    if request.method == 'GET':
+        fecha = request.GET['fname']
+        fecha = fecha.replace("/", "-")
+        resulto = requests.get(endpoint + 'fechas/' + fecha)
+        print(fecha)
+        #form = EntradaFecha(request.GET)
+       # if form.is_valid():
+      #       fecha = fecha.replace("/", "-")
+    #        print(str(fecha))
+   #         resulto = requests.get(endpoint + 'fechas/' + fecha)
+  #      else:
+ #           print("No entra")
+    return render(request, 'consulta_fecha.html')
 
+def reset(request):
+    if request.method == 'POST':
+        respuesta = requests.post(endpoint + 'reseteado', data = "")
+    return render(request, 'Inicio.html')

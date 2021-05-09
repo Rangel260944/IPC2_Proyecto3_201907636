@@ -23,6 +23,7 @@ class analizar:
         solo_reportados  = []
         para_todo = []
         en_posicion0 = []
+        global conteo_todo
         conteo_todo = []
         conteo_todo_con_user = []
         escritura = []
@@ -32,6 +33,7 @@ class analizar:
         contUsuario = 0
         contError = 0
         contUser = 0
+
         for elemento in root:
             texto = elemento.text
             fechas_encontradas = re.findall(fecha, texto)
@@ -116,12 +118,12 @@ class analizar:
             myfile.write( str(r))
         myfile.write("\n"+'</ESTADISTICAS>')
 
-    def peticion_fechas(self):
+    def peticion_fechas(self, fecha):
         correos_grafica = []
         numero_n_veces = []
-        u = input("Seleccione la fecha: ")
+        global conteo_todo
         for p in conteo_todo:
-            j = str(p).find(u)
+            j = str(p).find(str(fecha))
             if j >= 2:
                 correos_grafica.append(p[1])
                 numero_n_veces.append(p[2])
@@ -131,9 +133,9 @@ class analizar:
         primas = numero_n_veces
         plt.bar(range(len(correos_grafica)), primas, edgecolor='black', color=colores)
         plt.xticks(range(len(correos_grafica)), fechas, rotation=60)
-        plt.title(u)
+        plt.title(str(fecha))
         plt.ylim(min(primas) - 1, max(primas) + 1)
-        plt.show()
+        plt.savefig("C:/Users/Carlos Rangel/Documents/GitHub/IPC2_Proyecto3_201907636/App/Aplicacion/static/Grafica_fechas.png")
 
 
 

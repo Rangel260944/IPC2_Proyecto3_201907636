@@ -14,9 +14,14 @@
     <div>
     <nav style="color: aqua">
         <h1 style="color:White; text-align: center; background-color: #0BAF91;"><strong>Proyecto Final</strong></h1>
+        <form action = "/consulta/">
         <button type="submit" id= "btn1" style='text-decoration: none;padding: 10px;font-weight: 600;font-size: 20px;color: #ffffff;background-color: #DC430A;border-radius: 6px;border: 2px solid #CA3A05;' >Peticiones</button>
-        <button type="submit" id= "btn3" style='text-decoration: none;padding: 10px;font-weight: 600;font-size: 20px;color: #ffffff;background-color: #DC430A;border-radius: 6px;border: 2px solid #CA3A05; '>Ayuda</button>
+        </form>
+            <button type="submit" id= "btn3" style='text-decoration: none;padding: 10px;font-weight: 600;font-size: 20px;color: #ffffff;background-color: #DC430A;border-radius: 6px;border: 2px solid #CA3A05; '>Ayuda</button>
     </nav>
+        <form action = "/reset/">
+            <button type="submit" id= "btn1" style='text-decoration: none;padding: 10px;font-weight: 600;font-size: 20px;color: #ffffff;background-color: #DC430A;border-radius: 6px;border: 2px solid #CA3A05;' >Reset</button>
+        </form>
     <form action="/enviararchivo/" method="POST" enctype="multipart/form-data" >
         {% csrf_token %}
     <br>
