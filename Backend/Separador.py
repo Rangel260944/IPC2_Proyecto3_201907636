@@ -1,5 +1,7 @@
 from xml.etree import ElementTree as ET
 import re
+import matplotlib.pyplot as plt
+global conteo_todo
 class analizar:
     def expresiones(self):
         x = open("entrada.xml", "r")
@@ -114,6 +116,24 @@ class analizar:
             myfile.write( str(r))
         myfile.write("\n"+'</ESTADISTICAS>')
 
+    def peticion_fechas(self):
+        correos_grafica = []
+        numero_n_veces = []
+        u = input("Seleccione la fecha: ")
+        for p in conteo_todo:
+            j = str(p).find(u)
+            if j >= 2:
+                correos_grafica.append(p[1])
+                numero_n_veces.append(p[2])
+
+        colores = ['#025DE0', '#0BC1B9', '#ACDC0A', '#F6920B', '#F0FF00', '#E01002', '#3C3B3D']
+        fechas = correos_grafica
+        primas = numero_n_veces
+        plt.bar(range(len(correos_grafica)), primas, edgecolor='black', color=colores)
+        plt.xticks(range(len(correos_grafica)), fechas, rotation=60)
+        plt.title(u)
+        plt.ylim(min(primas) - 1, max(primas) + 1)
+        plt.show()
 
 
 

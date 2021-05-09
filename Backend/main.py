@@ -20,7 +20,7 @@ def getfile():
     return "Funciona"
 
 @app.route('/fechas', methods=['GET'])
-def consulta_fechas():
-    
+def consulta():
+    print("")
 if __name__ == "__main__":
     app.run(debug=True)
