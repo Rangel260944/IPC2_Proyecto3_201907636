@@ -3,6 +3,7 @@ import re
 import matplotlib.pyplot as plt
 global conteo_todo
 global invertido
+global ultimo_intento
 class analizar:
     def expresiones(self):
         x = open("entrada.xml", "r")
@@ -26,6 +27,7 @@ class analizar:
         en_posicion0 = []
         global conteo_todo
         global invertido
+        global  ultimo_intento
         conteo_todo = []
         conteo_todo_con_user = []
         escritura = []
@@ -33,6 +35,7 @@ class analizar:
         el_resto = []
         totales = []
         invertido = []
+        ultimo_intento = []
         contUsuario = 0
         contError = 0
         contUser = 0
@@ -148,30 +151,29 @@ class analizar:
 
 
     def peticion_error(self, codigo):
-        codigo_grafica = []
-        conteo_codigo_grafica = []
-        fecha_codigo_grafica = []
+            codigo_grafica = []
+            conteo_codigo_grafica = []
+            fecha_codigo_grafica = []
 
-        global invertido
-        print(invertido)
-        for p in invertido:
-            j = str(p).find(str(codigo))
-            print(j)
-            if j >= 3:
-                codigo_grafica.append(p[0])
-                fecha_codigo_grafica.append(p[1])
-                conteo_codigo_grafica.append(p[2])
+            global invertido
+            global ultimo_intento
+            print(invertido)
+            for p in invertido:
+                j = str(p).find(str(codigo))
+                print(j)
+                if j >= 3:
+                    codigo_grafica.append(p[0])
+                    fecha_codigo_grafica.append(p[1])
+                    conteo_codigo_grafica.append(p[2])
 
-        colores = ['#025DE0', '#0BC1B9', '#ACDC0A', '#F6920B', '#F0FF00', '#E01002', '#3C3B3D']
-        fechas = fecha_codigo_grafica
-        primas = conteo_codigo_grafica
-        print(primas)
-        print(fechas)
-        #plt.bar(range(len(fecha_codigo_grafica)), primas, edgecolor='black', color=colores)
-       # plt.xticks(range(len(fecha_codigo_grafica)), fechas, rotation=60)
-       # plt.title(str(codigo))
-      #  plt.ylim(min(primas)-1, max(primas) + 1)
-      #  plt.savefig("C:/Users/Carlos Rangel/Documents/GitHub/IPC2_Proyecto3_201907636/App/Aplicacion/static/Grafica_errores.png")
+                    print( 'Codigo = '+ codigo_grafica + '\n'+ 'Fecha del error = ' +fecha_codigo_grafica +'\n'+'Conteo que tuvo en esa fecha = '+ conteo_codigo_grafica)
+            #colores = ['#025DE0', '#0BC1B9', '#ACDC0A', '#F6920B', '#F0FF00', '#E01002', '#3C3B3D']
+
+            #plt.bar(range(len(fecha_codigo_grafica)), primas, edgecolor='black', color=colores)
+            #plt.xticks(range(len(fecha_codigo_grafica)), fechas, rotation=60)
+            #plt.title(str(ultimo_intento[3]))
+            #plt.ylim(min(primas)-1, max(primas) + 1)
+            #plt.savefig("C:/Users/Carlos Rangel/Documents/GitHub/IPC2_Proyecto3_201907636/App/Aplicacion/static/Grafica_errores.png")
 
 
 
