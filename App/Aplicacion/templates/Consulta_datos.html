@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Consulta de Datos</title>
 </head>
-<body >
-<h1>Datos del Xml Estadistica</h1>
+<body style="background-color:#26001b;" >
+<h1 style="color: #99D3FF;">Datos del Xml Estadistica</h1>
 <form action="/regreso/" method="GET" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="card text-white bg-danger mb-3" style="max-width: 40rem;   ">
             <button type="submit" id= "btn2" style='text-decoration: none;padding: 10px;font-weight: 600;font-size: 20px;color: #ffffff;background-color: #DC430A;border-radius: 6px;border: 2px solid #CA3A05; float: right ' >Mostrar</button>
-    <textarea style="background-color: #062c33; Color:#fff600;" name="textarea2" rows="20"  cols="120"  >{{consultaR}}</textarea>
+    <textarea style="background-color: #062c33; Color:#fff600;" name="textarea2" rows="90"  cols="200"  >{{consultaR}}</textarea>
         </div>
 </form>
 </body>
