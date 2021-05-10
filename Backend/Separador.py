@@ -3,7 +3,8 @@ import re
 import matplotlib.pyplot as plt
 global conteo_todo
 global invertido
-global ultimo_intento
+global conteo_todo_con_user
+
 class analizar:
     def expresiones(self):
         x = open("entrada.xml", "r")
@@ -28,6 +29,7 @@ class analizar:
         global conteo_todo
         global invertido
         global  ultimo_intento
+        global conteo_todo_con_user
         conteo_todo = []
         conteo_todo_con_user = []
         escritura = []
@@ -151,22 +153,22 @@ class analizar:
 
 
     def peticion_error(self, codigo):
+            pa = []
             codigo_grafica = []
             conteo_codigo_grafica = []
             fecha_codigo_grafica = []
-
             global invertido
-            global ultimo_intento
-            print(invertido)
-            for p in invertido:
+            global conteo_todo_con_user
+            print(conteo_todo_con_user)
+            for p in conteo_todo_con_user:
                 j = str(p).find(str(codigo))
                 print(j)
                 if j >= 3:
                     codigo_grafica.append(p[0])
                     fecha_codigo_grafica.append(p[1])
                     conteo_codigo_grafica.append(p[2])
-
-                    print( 'Codigo = '+ codigo_grafica + '\n'+ 'Fecha del error = ' +fecha_codigo_grafica +'\n'+'Conteo que tuvo en esa fecha = '+ conteo_codigo_grafica)
+                    pa.append([conteo_codigo_grafica , fecha_codigo_grafica , conteo_codigo_grafica])
+            print(pa)
             #colores = ['#025DE0', '#0BC1B9', '#ACDC0A', '#F6920B', '#F0FF00', '#E01002', '#3C3B3D']
 
             #plt.bar(range(len(fecha_codigo_grafica)), primas, edgecolor='black', color=colores)
