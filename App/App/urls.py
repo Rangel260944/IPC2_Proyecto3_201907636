@@ -25,5 +25,8 @@ urlpatterns = [
     path('enviar/', views.enviarinfo),
     path('reset/', views.reset),
     path('enviacodigo/', views.codigo),
-    path('errores/', views.peticion_error)
+    path('errores/', views.peticion_error),
+    path('ayuda/', views.ayuda),
+    path('consult/', views.consulta),
+    path('regreso/', views.datos)
 ]

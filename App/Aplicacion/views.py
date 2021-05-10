@@ -14,7 +14,10 @@ def consulta_fech(x):
     return render(x, 'consulta_fecha.html')
 def peticion_error(x):
     return render(x, 'consulta_error.html')
-
+def ayuda(x):
+    return render(x, 'Ayuda.html')
+def consulta(x):
+    return render(x, 'Consulta_datos.html')
 
 def enviararchivo(request):
     contexto={}
@@ -72,6 +75,13 @@ def reset(request):
 def codigo(request):
     if request.method == 'GET':
         codigo = request.GET['fnamee']
-        resulto = requests.get(endpoint + 'codigos/' + codigo)
+        resulto = requests.get(endpoint + 'codigos/' + codigo.strip())
         print(codigo)
-        return render(request, 'consulta_error.html')
+
+    return render(request, 'consulta_error.html')
+
+def datos(request):
+    Open_File = open('C:/Users/Carlos Rangel/Documents/GitHub/IPC2_Proyecto3_201907636/Backend/estadisticas.xml', "r", encoding="utf-8")
+    data3 = Open_File.read()
+    Open_File.close()
+    return render(request, "Consulta_datos.html", {"consultaR": data3})

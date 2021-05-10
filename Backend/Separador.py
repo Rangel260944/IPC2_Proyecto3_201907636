@@ -2,7 +2,7 @@ from xml.etree import ElementTree as ET
 import re
 import matplotlib.pyplot as plt
 global conteo_todo
-global conteo_todo_con_user
+global invertido
 class analizar:
     def expresiones(self):
         x = open("entrada.xml", "r")
@@ -25,13 +25,14 @@ class analizar:
         para_todo = []
         en_posicion0 = []
         global conteo_todo
-        global conteo_todo_con_user
+        global invertido
         conteo_todo = []
         conteo_todo_con_user = []
         escritura = []
         primera_posicion = []
         el_resto = []
         totales = []
+        invertido = []
         contUsuario = 0
         contError = 0
         contUser = 0
@@ -50,6 +51,7 @@ class analizar:
             tt = correo_encontradas[1]
             #################################################
             todo.append([fechas_encontradas[0], correo_encontradas[0], spl[1]])
+            invertido.append([spl[1].strip(), correo_encontradas[0],fechas_encontradas[0] ])
         for i in fechas:
             for j in i:
                 fechas_listas.append(j)
@@ -75,7 +77,7 @@ class analizar:
                     if dimUser != 0 and dimError != 0:
                         contUsuario += 1
                         contError += 1
-            conteo_todo_con_user.append([sub, contUsuario,contError])
+            conteo_todo_con_user.append([error.strip(), sub, contUsuario])
             totales.append(contUsuario)
             contUsuario = 0
             contError = 0
@@ -124,6 +126,7 @@ class analizar:
         correos_grafica = []
         numero_n_veces = []
         global conteo_todo
+        print(conteo_todo)
         for p in conteo_todo:
             j = str(p).find(str(fecha))
             if j >= 2:
@@ -148,9 +151,11 @@ class analizar:
         codigo_grafica = []
         conteo_codigo_grafica = []
         fecha_codigo_grafica = []
-        global conteo_todo_con_user
-        for p in conteo_todo_con_user:
-            j = str(p).find(codigo)
+
+        global invertido
+        print(invertido)
+        for p in invertido:
+            j = str(p).find(str(codigo))
             print(j)
             if j >= 3:
                 codigo_grafica.append(p[0])
@@ -160,12 +165,13 @@ class analizar:
         colores = ['#025DE0', '#0BC1B9', '#ACDC0A', '#F6920B', '#F0FF00', '#E01002', '#3C3B3D']
         fechas = fecha_codigo_grafica
         primas = conteo_codigo_grafica
-        plt.bar(range(len(fecha_codigo_grafica)), primas, edgecolor='black', color=colores)
-        plt.xticks(range(len(fecha_codigo_grafica)), fechas, rotation=60)
-        plt.title(codigo)
-        plt.ylim(min(primas) - 1, max(primas) + 1)
-        plt.xlabel()
-        plt.savefig("C:/Users/Carlos Rangel/Documents/GitHub/IPC2_Proyecto3_201907636/App/Aplicacion/static/Grafica_errores.png")
+        print(primas)
+        print(fechas)
+        #plt.bar(range(len(fecha_codigo_grafica)), primas, edgecolor='black', color=colores)
+       # plt.xticks(range(len(fecha_codigo_grafica)), fechas, rotation=60)
+       # plt.title(str(codigo))
+      #  plt.ylim(min(primas)-1, max(primas) + 1)
+      #  plt.savefig("C:/Users/Carlos Rangel/Documents/GitHub/IPC2_Proyecto3_201907636/App/Aplicacion/static/Grafica_errores.png")
 
 
 
